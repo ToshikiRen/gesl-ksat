@@ -1,7 +1,7 @@
 <h3> Running the tests and the main files </h3>
 
-</br>From the root file -> problem folder run make build, then from src run make run in order to run the contents of the main.c file. If you want to run the tests for the 1st and 3rd problem form the problem folder directily run make test.
-
+</br>From the root file -> problem folder run make build, then from src run make run in order to run the contents of the main.c file. If you want to run the tests for the 1st and 3rd problem from the problem folder directily run make test. </br> 
+Another way to run the main.c files is to simply use make single-run in the problem folder.
 
 
 <h3> Fun Time Sorting </h3>

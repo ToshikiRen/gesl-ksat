@@ -19,7 +19,7 @@ int main()
 	heapsort(h, vector, vectorSize);
 
 	printHeapInFile(h, outputFile);
-	
+	printHeapInFile(h, stdout);
 
 	return 0;
 }

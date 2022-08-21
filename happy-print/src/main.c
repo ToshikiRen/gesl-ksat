@@ -7,6 +7,8 @@ int main()
     insertNode(root, 42);
     insertNode(root, 20);
     insertNode(root, 50);
+    insertNode(root, 500);
+    insertNode(root, 490);
     happyPrint(root);
 
     return 0;
