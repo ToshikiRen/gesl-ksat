@@ -3,7 +3,7 @@
 #include "test-utils.hpp"
 #include "heap.h"
 
-TEST_CASE("Cerinta 1: Heapsort") {
+TEST_CASE("FUN TIME SORTING") {
     
     SECTION("Heapsort") {
 		std::vector<int> data = beforeEach(TASK1_TEST_SOLUTION1);

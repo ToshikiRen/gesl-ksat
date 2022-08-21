@@ -30,9 +30,8 @@ void heapsort(Heap *h, int *buffer, int bufferSize)
     }
 
     h->size = bufferSize;
-
-    FILE* f = fopen("result.txt", "w");
-    printHeapInFile(h, f);
+    
+  
 
 
 }
