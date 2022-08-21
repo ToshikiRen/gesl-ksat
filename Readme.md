@@ -11,12 +11,19 @@ Complexity for both time and space: O(NlogN), where N is the number of elements 
 
 <h3> Happy Print </h3>
 
+
+Space Complexity: O(2^h), where h = the height of the binary tree. This comes from the fact that for each level we need 2^level nodes in the queue, of they are not present we include a dummy node.
+Time Complexity: O(2^h) - for the same reason as stated above, we always need to keep track of the missing nodes when printing in order to have the right shape for the binary tree.
+
 Prints a binary tree in a nice way:
 
 Example:
 ![Tree format](image.png)
 
 <h3> Next Permutation </h3>
+
+Time Complexity: O(N)  - linear runtime
+Space Complexity: O(1) - space needed for the solution does not depend on the input size 
 
 0. At each step we start from the last element and work our way to the first
 1. Find firstIndex such that array[i] < array[i+1]

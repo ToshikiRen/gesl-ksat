@@ -12,6 +12,7 @@ TEST_CASE("FUN TIME SORTING") {
         for (unsigned int i = 0; i < data.size(); i++) {
             REQUIRE(data.at(i) == h->vec[i]);
         }
+        deleteHeap(&h);
     }
 }
 
