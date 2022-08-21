@@ -129,8 +129,6 @@ int computeInnerSpaces(int* delimiters, int innerLevel, int level)
     int sp = delimiters[level - innerLevel], i;
     int extraSpaces = 3;
 
-
-
     for(i = level - innerLevel + 1; i <= level; i++)
     {
         sp -= delimiters[i];
@@ -163,9 +161,7 @@ void happyPrint(binaryTree* root)
     dummyNode->value = INT_MIN;
     dummyNode->left = NULL;
     dummyNode->right = NULL;
-
     enQueue(q, root, 0, 0);
-
 
     while(isNotEmpty(q)) 
     {
@@ -175,40 +171,27 @@ void happyPrint(binaryTree* root)
         else if(queueNode->level + 1 <= height)
             enQueue(q, dummyNode, queueNode->level + 1, 1);
 
-
         if(queueNode->node->right)
             enQueue(q, queueNode->node->right, queueNode->level + 1, queueNode->innerLevel + 1);
         else if(queueNode->level + 1 <= height)
             enQueue(q, dummyNode, queueNode->level + 1, queueNode->innerLevel + 1);
 
-        // dummy node
         if(lastLevel != queueNode->level)
-            printf("\n");
-        if(queueNode->node->value == INT_MIN)
         {
-            if(lastLevel != queueNode->level)
-                printCaracter(' ', spaces[queueNode->level]);
-                
-            printCaracter('_', delimiters[queueNode->level]);
-            printf("xxx");
-            printCaracter('_', delimiters[queueNode->level]);
-            if(queueNode->level > 0)
-                printCaracter(' ', computeInnerSpaces(delimiters, queueNode->innerLevel, queueNode->level));
-            
+            printf("\n");
+            printCaracter(' ', spaces[queueNode->level]);
         }
+    
+        if(queueNode->node->value == INT_MIN)
+            printCaracter(' ', delimiters[queueNode->level] * 2 + 3);
         else
         {
-            if(lastLevel != queueNode->level)
-                printCaracter(' ', spaces[queueNode->level]);
-    
-            
-            printCaracter('_', delimiters[queueNode->level]);
+            printCaracter(queueNode->node->left ? '_' : ' ', delimiters[queueNode->level]);
             printf("%3d", queueNode->node->value);
-            printCaracter('_', delimiters[queueNode->level]);
-            if(queueNode->level > 0)
-                printCaracter(' ', computeInnerSpaces(delimiters, queueNode->innerLevel, queueNode->level));
-            
+            printCaracter(queueNode->node->right ? '_' : ' ', delimiters[queueNode->level]);
         }
+        if(queueNode->level > 0)
+            printCaracter(' ', computeInnerSpaces(delimiters, queueNode->innerLevel, queueNode->level));
 
         lastLevel = queueNode->level;
         
