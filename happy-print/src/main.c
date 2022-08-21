@@ -9,8 +9,10 @@ int main()
     
     insertNode(root, 123);
     insertNode(root, 433);
-    //insertNode(root, 42);
-    insertNode(root, 1242);
+    insertNode(root, 642);
+    //insertNode(root, 842);
+    //insertNode(root, 942);
+    //insertNode(root, 999);
     //inorder(root);
     happyPrint(root);
 

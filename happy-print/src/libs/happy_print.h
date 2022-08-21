@@ -15,7 +15,7 @@ typedef struct queueNode
 {
     binaryTree* node; 
     int level;
-
+    int innerLevel;
     struct queueNode* next;
 
 }qNode;
@@ -30,8 +30,9 @@ typedef struct
 binaryTree* insertNode(binaryTree* , int );
 void inorder(binaryTree* );
 int computeHeight(binaryTree*);
+int computeInnerSpaces(int*, int, int);
 queue* createQueue();
-void enQueue(queue* , binaryTree* , int );
+void enQueue(queue* , binaryTree* , int , int);
 qNode* deQueue(queue* );
 int isNotEmpty(queue* );
 void populateSpacesAndDelimiters(int , int* , int* );
