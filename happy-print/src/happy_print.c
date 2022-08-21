@@ -137,7 +137,10 @@ int computeInnerSpaces(int* delimiters, int innerLevel, int level)
         extraSpaces -= 3;
     }
 
-
+    if(innerLevel == 1)
+        extraSpaces += 3;
+    else if(innerLevel > 2)
+        extraSpaces -= 3 * (innerLevel - 2);
 
     return 2*sp + extraSpaces;
 }
@@ -184,48 +187,27 @@ void happyPrint(binaryTree* root)
         if(queueNode->node->value == INT_MIN)
         {
             if(lastLevel != queueNode->level)
-            {
                 printCaracter(' ', spaces[queueNode->level]);
-            }
                 
             printCaracter('_', delimiters[queueNode->level]);
             printf("xxx");
             printCaracter('_', delimiters[queueNode->level]);
             if(queueNode->level > 0)
-            {
                 printCaracter(' ', computeInnerSpaces(delimiters, queueNode->innerLevel, queueNode->level));
-                // if(queueNode->innerLevel)
-                // {
-                //     rightCounter++;
-                //     printCaracter(' ', 2 * (delimiters[queueNode->level - 1] - delimiters[queueNode->level]) + 3 );
-                // }
-                // else    
-                //     printCaracter(' ', 2 * (delimiters[queueNode->level - 1] - delimiters[queueNode->level]) + 3);
-
-            }
+            
         }
         else
         {
             if(lastLevel != queueNode->level)
-            {
                 printCaracter(' ', spaces[queueNode->level]);
     
-            }
+            
             printCaracter('_', delimiters[queueNode->level]);
             printf("%3d", queueNode->node->value);
             printCaracter('_', delimiters[queueNode->level]);
             if(queueNode->level > 0)
-            {
-                
                 printCaracter(' ', computeInnerSpaces(delimiters, queueNode->innerLevel, queueNode->level));
-                // if(queueNode->innerLevel)
-                // {
-                //     rightCounter++;
-                //     printCaracter(' ', 2 * (delimiters[queueNode->level - 1] - delimiters[queueNode->level]) + 3 );
-                // }
-                // else    
-                //     printCaracter(' ', 2 * (delimiters[queueNode->level - 1] - delimiters[queueNode->level]) + 3);
-            }
+            
         }
 
         lastLevel = queueNode->level;
